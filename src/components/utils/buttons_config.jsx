@@ -21,7 +21,7 @@ const CALCULATOR_BUTTONS_CONFIG = [
     delete: true
   },
   {
-    viewValue: "÷",
+    viewValue: "/",
     type: 'OPERATION',
     attributes: {
       buttonColor: "operation",

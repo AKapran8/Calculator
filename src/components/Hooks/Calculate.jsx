@@ -25,7 +25,6 @@ const useCalculate = () => {
   const equalCalculate = () => {
     setOperation("");
     setPreviousValue("");
-    console.log(operation)
     setCurrentValue(calculateValue());
   };
 
@@ -41,11 +40,11 @@ const useCalculate = () => {
       case "*":
         result = +previousValue * +currentValue;
         break;
-      case "÷":
+      case "/":
         result = +previousValue / +currentValue;
         break;
       default:
-        throw new Error("Invalid operator");
+        break;
     }
 
     return result;

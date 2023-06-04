@@ -6,22 +6,30 @@ import CALCULATOR_BUTTONS_CONFIG from "./utils/buttons_config";
 const Calculator = () => {
   const calculator = useCalculate();
 
-  const handleClick = (type, value) => {
+  const clickHandler = (type, value) => {
     switch (type) {
       case "AC_OPERATION": {
-        return calculator.clearAllValue();
+        calculator.clearAllValue();
+        break;
       }
       case "DELETE_OPERATION": {
-        return calculator.deleteValue();
+        calculator.deleteValue();
+        break;
       }
       case "CALCULATE_OPERATION": {
-        return calculator.equalCalculate();
+        calculator.equalCalculate();
+        break;
       }
       case "OPERATION": {
-        return calculator.operate(value);
+        calculator.operate(value);
+        break;
+      }
+      case "VALUE": {
+        calculator.appendValue(value);
+        break;
       }
       default:
-        return calculator.appendValue(value);
+        break;
     }
   };
 
@@ -38,7 +46,7 @@ const Calculator = () => {
         <Button
           {...(btn.attributes && { ...btn.attributes })}
           key={btn.viewValue}
-          onClick={handleClick.bind(null, btn.type, btn.viewValue)}
+          onClick={clickHandler.bind(null, btn.type, btn.viewValue)}
         >
           {btn.viewValue}
         </Button>
