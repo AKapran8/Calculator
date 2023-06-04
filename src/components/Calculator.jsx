@@ -1,85 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Current, Previous, Screen, Button } from "./Styled/styled";
+import useCalculate from "./Hooks/Calculate";
 import CALCULATOR_BUTTONS_CONFIG from "./utils/buttons_config";
 
 const Calculator = () => {
-  const [previousValue, setPreviousValue] = useState("");
-  const [currentValue, setCurrentValue] = useState("");
-  const [operation, setOperation] = useState("");
-
-  const appendValueHandler = (value) => {
-    setCurrentValue((prevValue) => {
-      if (prevValue.includes(".") && value === ".") return prevValue;
-      return prevValue + value;
-    });
-  };
-
-  const deleteHandler = () => {
-    if (currentValue) setCurrentValue((prev) => prev.slice(0, -1));
-  };
-
-  const clearAllHandler = () => {
-    setPreviousValue("");
-    setCurrentValue("");
-    setOperation("");
-  };
-
-  const calculateValue = (operator) => {
-    let result;
-
-    switch (operator) {
-      case "+":
-        result = +previousValue + +currentValue;
-        break;
-      case "-":
-        result = +previousValue - +currentValue;
-        break;
-      case "*":
-        result = +previousValue * +currentValue;
-        break;
-      case "/":
-        result = +previousValue / +currentValue;
-        break;
-      default:
-        throw new Error("Invalid operator");
-    }
-
-    return result;
-  };
-
-  const operationHandler = (operation) => {
-    if (!currentValue) return;
-    if (!previousValue) {
-      setPreviousValue(currentValue);
-    } else {
-      setPreviousValue(calculateValue(operation));
-    }
-    setCurrentValue("");
-    setOperation(operation);
-  };
-
-  const equalHandler = () => {
-    setPreviousValue('');
-    setCurrentValue(calculateValue(operation));
-    setOperation("");
-  };
+  const calculator = useCalculate();
 
   const handleClick = (type, value) => {
     switch (type) {
       case "AC_OPERATION": {
-        return clearAllHandler();
+        return calculator.clearAllValue();
       }
       case "DELETE_OPERATION": {
-        return deleteHandler();
+        return calculator.deleteValue();
+      }
+      case "CALCULATE_OPERATION": {
+        return calculator.equalCalculate();
       }
       case "OPERATION": {
-        return operationHandler(value);
-      }
-      case "EQUAL_OPERATION": {
-        return equalHandler();
+        return calculator.operate(value);
       }
       default:
-        return appendValueHandler(value);
+        return calculator.appendValue(value);
     }
   };
 
@@ -87,9 +29,9 @@ const Calculator = () => {
     <Container>
       <Screen>
         <Previous>
-          {previousValue} {operation}
+          {calculator.value.previousValue} {calculator.value.operation}
         </Previous>
-        <Current> {currentValue} </Current>
+        <Current> {calculator.value.currentValue} </Current>
       </Screen>
 
       {CALCULATOR_BUTTONS_CONFIG.map((btn) => (

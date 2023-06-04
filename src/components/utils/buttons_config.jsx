@@ -109,7 +109,7 @@ const CALCULATOR_BUTTONS_CONFIG = [
   },
   {
     viewValue: "=",
-    type: 'EQUAL_OPERATION',
+    type: 'CALCULATE_OPERATION',
     attributes: {
       gridSpan: 2,
       buttonColor: "operation",
