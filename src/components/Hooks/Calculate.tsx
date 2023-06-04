@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { OperationType } from "../model";
 
 const useCalculate = () => {
   const [previousValue, setPreviousValue] = useState("");
@@ -6,14 +7,14 @@ const useCalculate = () => {
   const [operation, setOperation] = useState("");
 
   const appendValue = (value: string) => {
-    setCurrentValue((prevValue) => {
+    setCurrentValue((prevValue: string) => {
       if (prevValue.includes(".") && value === ".") return prevValue;
       return prevValue + value;
     });
   };
 
   const deleteValue = () => {
-    if (currentValue) setCurrentValue((prev) => prev.slice(0, -1));
+    if (currentValue) setCurrentValue((prev: string) => prev.slice(0, -1));
   };
 
   const clearAllValue = () => {
@@ -50,7 +51,7 @@ const useCalculate = () => {
     return result?.toString() || "";
   };
 
-  const operate = (operation: string) => {
+  const operate = (operation: OperationType) => {
     if (!currentValue) return;
     if (!previousValue) {
       setPreviousValue(currentValue);

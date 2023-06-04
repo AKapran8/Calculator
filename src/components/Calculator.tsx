@@ -2,12 +2,12 @@ import React from "react";
 import { Container, Current, Previous, Screen, Button } from "./Styled/styled";
 import useCalculate from "./Hooks/Calculate";
 import CALCULATOR_BUTTONS_CONFIG from "./utils/buttons_config";
-import { ButtonType } from "./model";
+import { ButtonType, OperationType } from "./model";
 
 const Calculator = () => {
   const calculator = useCalculate();
 
-  const clickHandler = (type: ButtonType, value: string) => {
+  const clickHandler = (type: ButtonType, value: OperationType | string) => {
     switch (type) {
       case "AC_OPERATION": {
         calculator.clearAllValue();
@@ -22,7 +22,7 @@ const Calculator = () => {
         break;
       }
       case "OPERATION": {
-        calculator.operate(value);
+        calculator.operate(value as OperationType);
         break;
       }
       case "VALUE": {

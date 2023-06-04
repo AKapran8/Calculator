@@ -5,6 +5,8 @@ export type ButtonType =
   | "VALUE"
   | "CALCULATE_OPERATION";
 
+export type OperationType = "*" | "/" | "+" | "-";
+
 export interface IButtonElement {
   viewValue: string;
   type: ButtonType;
