@@ -5,7 +5,7 @@ const useCalculate = () => {
   const [currentValue, setCurrentValue] = useState("");
   const [operation, setOperation] = useState("");
 
-  const appendValue = (value) => {
+  const appendValue = (value: string) => {
     setCurrentValue((prevValue) => {
       if (prevValue.includes(".") && value === ".") return prevValue;
       return prevValue + value;
@@ -47,10 +47,10 @@ const useCalculate = () => {
         break;
     }
 
-    return result;
+    return result?.toString() || "";
   };
 
-  const operate = (operation) => {
+  const operate = (operation: string) => {
     if (!currentValue) return;
     if (!previousValue) {
       setPreviousValue(currentValue);

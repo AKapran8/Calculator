@@ -1,4 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
+interface ButtonProps {
+  gridSpan?: number;
+  rightBtnRadius?: boolean;
+  leftBtnRadius?: boolean;
+  buttonColor?: string;
+}
 
 export const Container = styled.div`
   display: grid;
@@ -36,7 +43,7 @@ export const Current = styled.div`
   font-size: 2.5rem;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
   cursor: pointer;
   font-size: 2rem;
   border: 1px outset white;

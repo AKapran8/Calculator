@@ -1,12 +1,13 @@
+import { IButtonElement } from "../model";
 // viewValue. Required. Unique element which you see in UI, also used like a "key" attribute
 // type. Required. Set type of button. Is that operator function, number, etc..
 // appendBtnValue for buttons which are numbers and dot.
 // attributes. Not required. it's an object, where you set all attribute which btn will have. WARNING it used with spread operator {...attributes}
 
-const CALCULATOR_BUTTONS_CONFIG = [
+const CALCULATOR_BUTTONS_CONFIG: IButtonElement[] = [
   {
     viewValue: "AC",
-    type: 'AC_OPERATION',
+    type: "AC_OPERATION",
     attributes: {
       gridSpan: 2,
       buttonColor: "func",
@@ -14,88 +15,87 @@ const CALCULATOR_BUTTONS_CONFIG = [
   },
   {
     viewValue: "DEL",
-    type: 'DELETE_OPERATION',
+    type: "DELETE_OPERATION", 
     attributes: {
       buttonColor: "func",
     },
-    delete: true
   },
   {
     viewValue: "/",
-    type: 'OPERATION',
+    type: "OPERATION",
     attributes: {
       buttonColor: "operation",
     },
   },
   {
     viewValue: "7",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "8",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "9",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "*",
-    type: 'OPERATION',
+    type: "OPERATION",
     attributes: {
       buttonColor: "operation",
     },
   },
   {
     viewValue: "4",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "5",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "6",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "+",
-    type: 'OPERATION',
+    type: "OPERATION",
     attributes: {
       buttonColor: "operation",
     },
   },
   {
     viewValue: "1",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "2",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "3",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "-",
-    type: 'OPERATION',
+    type: "OPERATION",
     attributes: {
       buttonColor: "operation",
     },
   },
   {
     viewValue: ".",
-    type: 'VALUE',
+    type: "VALUE",
     attributes: {
       buttonColor: "func",
       leftBtnRadius: true,
@@ -104,12 +104,12 @@ const CALCULATOR_BUTTONS_CONFIG = [
   },
   {
     viewValue: "0",
-    type: 'VALUE',
+    type: "VALUE",
     appendBtnValue: true,
   },
   {
     viewValue: "=",
-    type: 'CALCULATE_OPERATION',
+    type: "CALCULATE_OPERATION",
     attributes: {
       gridSpan: 2,
       buttonColor: "operation",
