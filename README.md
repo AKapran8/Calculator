@@ -1,8 +1,10 @@
 
 # About
 
+NodeJS version `18.16.0`.
 In current project I use these technologies: ReactJS, JavaScript, JSX.  
 For styling I use `styled-components` package, which was installed from command `yarn install styled-components`.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
