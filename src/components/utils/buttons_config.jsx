@@ -1,7 +1,7 @@
-// viewValue what we see in UI, also like a "key" attribute
-// appendBtnValue if btn must change the number, that use this filed, also used in condition for func in component
-// attributes it's an object, where all attribute which btn have. WARNING use with spread operator {...attributes}
-// type. Type of btn, is that value or operator or func
+// viewValue. Required. Unique element which you see in UI, also used like a "key" attribute
+// type. Required. Set type of button. Is that operator function, number, etc..
+// appendBtnValue for buttons which are numbers and dot.
+// attributes. Not required. it's an object, where you set all attribute which btn will have. WARNING it used with spread operator {...attributes}
 
 const CALCULATOR_BUTTONS_CONFIG = [
   {

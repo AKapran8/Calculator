@@ -52,8 +52,7 @@ export const Button = styled.button`
   /* Added border radius to left and right bottom parts */
   ${({ rightBtnRadius }) =>
     rightBtnRadius && `border-bottom-right-radius: 10px;`};
-  ${({ leftBtnRadius }) =>
-    leftBtnRadius && `border-bottom-left-radius: 10px;`};
+  ${({ leftBtnRadius }) => leftBtnRadius && `border-bottom-left-radius: 10px;`};
 
   /* BUTTONS COLOR */
   ${({ buttonColor }) => {
