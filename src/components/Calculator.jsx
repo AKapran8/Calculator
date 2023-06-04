@@ -1,31 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Current, Previous, Screen, Button } from "./Styled/styled";
+import CALCULATOR_BUTTONS_CONFIG from "./buttons_config";
 
 const Calculator = () => {
+  const [currentNumber, setCurrentNumber] = useState("");
+
+  const appendValue = (value) => {
+    setCurrentNumber((prevValue) => {
+      if (prevValue.includes(".") && value === ".") return prevValue;
+      return prevValue + value;
+    });
+  };
+
   return (
     <Container>
       <Screen>
         <Previous></Previous>
-        <Current></Current>
+        <Current> {currentNumber} </Current>
       </Screen>
-      <Button gridSpan={2} buttonColor={'func'} >AC</Button>
-      <Button buttonColor={'func'} >DEL</Button>
-      <Button buttonColor={'operation'}>÷</Button>
-      <Button>7</Button>
-      <Button>8</Button>
-      <Button>9</Button>
-      <Button buttonColor={'operation'}>*</Button>
-      <Button>4</Button>
-      <Button>5</Button>
-      <Button>6</Button>
-      <Button buttonColor={'operation'}>+</Button>
-      <Button>1</Button>
-      <Button>2</Button>
-      <Button>3</Button>
-      <Button buttonColor={'operation'}>-</Button>
-      <Button buttonColor={'func'} dotBottomRadius >.</Button>
-      <Button>0</Button>
-      <Button gridSpan={2} buttonColor={'operation'} equalBottomRadius >=</Button>
+
+      {CALCULATOR_BUTTONS_CONFIG.map((btn) => (
+        <Button
+          {...(btn.attributes && { ...btn.attributes })}
+          key={btn.viewValue}
+          onClick={
+            btn.appendBtnValue
+              ? appendValue.bind(null, btn.viewValue)
+              : undefined
+          }
+        >
+          {btn.viewValue}
+        </Button>
+      ))}
     </Container>
   );
 };

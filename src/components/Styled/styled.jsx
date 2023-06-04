@@ -50,10 +50,10 @@ export const Button = styled.button`
   ${({ gridSpan }) => gridSpan && `grid-column: span ${gridSpan};`};
 
   /* Added border radius to left and right bottom parts */
-  ${({ equalBottomRadius }) =>
-    equalBottomRadius && `border-bottom-right-radius: 10px;`};
-  ${({ dotBottomRadius }) =>
-    dotBottomRadius && `border-bottom-left-radius: 10px;`};
+  ${({ rightBtnRadius }) =>
+    rightBtnRadius && `border-bottom-right-radius: 10px;`};
+  ${({ leftBtnRadius }) =>
+    leftBtnRadius && `border-bottom-left-radius: 10px;`};
 
   /* BUTTONS COLOR */
   ${({ buttonColor }) => {
