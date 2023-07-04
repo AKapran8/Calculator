@@ -1,6 +1,6 @@
 # About
 
-NodeJS version `18.16.0`.
+NodeJS version `18.16.0`.  
 In current project I use these technologies: ReactJS, TypeScript, TSX.  
 For styling I use `styled-components` package, which was installed from command `npm install @types/styled-components`.
 
